@@ -4,6 +4,10 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 const authRoutes = require('./routes/authRoutes');
+const bookRoutes = require('./routes/bookRoutes');
+const authorRoutes = require('./routes/authorRoutes');
+const genreRoutes = require('./routes/genreRoutes');
+const loanRoutes = require('./routes/loanRoutes');
 
 const app = express();
 app.use(cors());
@@ -15,6 +19,10 @@ mongoose.connect(process.env.MONGO_URI)
 
 // Rutas
 app.use('/api/auth', authRoutes);
+app.use('/api/books', bookRoutes);
+app.use('/api/authors', authorRoutes);
+app.use('/api/genres', genreRoutes);
+app.use('/api/loans', loanRoutes);
 
 app.get('/', (req, res) => {
   res.json({ mensaje: 'API de gestión de biblioteca funcionando' });
