@@ -9,6 +9,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import MyLoans from './pages/MyLoans';
 import AdminDashboard from './pages/AdminDashboard';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/mis-prestamos" element={<PrivateRoute><MyLoans /></PrivateRoute>} />
           <Route path="/admin" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
